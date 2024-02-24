@@ -12,7 +12,7 @@ const MealsList = () => {
                 {meals.map((ele) => {
 
                     return (
-                        <li>
+                        <li key={ele.id}>
                             <input
                                 type="checkbox"
                                 checked={ele.ticked}
