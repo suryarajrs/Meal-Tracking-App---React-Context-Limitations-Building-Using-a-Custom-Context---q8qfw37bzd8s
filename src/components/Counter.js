@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import {  MyContext } from './MealsProvider';
 
 const Counter = () => {
     const { meals } = useContext(MyContext)

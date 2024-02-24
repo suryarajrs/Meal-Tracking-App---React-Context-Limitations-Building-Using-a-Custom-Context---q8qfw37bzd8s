@@ -15,7 +15,7 @@ const MealsList = () => {
                         <li>
                             <input
                                 type="checkbox"
-                                checked={ele.checked}
+                                checked={ele.ticked}
                                 onChange={() => tickMeal(ele.id)}
                             />
                             {ele.name}
