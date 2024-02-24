@@ -1,22 +1,35 @@
 import React, { useState } from "react";
 
 const todaysMeals = [
-    { id: 1, name: 'Baked Beans' },
-    { id: 2, name: 'Baked Sweet Potatoes' },
-    { id: 3, name: 'Baked Potatoes' },
+    { id: 1, name: 'Baked Beans' , ticked:false },
+    { id: 2, name: 'Baked Sweet Potatoes' , ticked:false },
+    { id: 3, name: 'Baked Potatoes' , ticked:false },
 ]
-
-const MealsProvider = () => {
+export const MyContext = createContext();
+const MealsProvider = ({children}) => {
     const [meals, setMeals] = useState(todaysMeals);
 
-    const tickMeal = () => {
 
+    const tickMeal = (id) => {
+      
+        const updatedmeals =  meals.map((item) =>{
+
+            if(item.id === id){
+                
+                return {...item, ticked: !item.ticked};
+            }
+
+            return item
+        })
+
+      
+      setMeals(updatedmeals);
     }
 
     return (
-        <div>
-            
-        </div>
+       <MyContext.Provider value={{meals,tickMeal}}>
+        {children}
+       </MyContext.Provider>
     )
 };
 
